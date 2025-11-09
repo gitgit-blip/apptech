@@ -1,0 +1,233 @@
+/* === Global Styles & Typography === */
+/* Using Sarabun for a more elegant, structural feel and Noto Sans Thai for readability */
+body {
+  margin: 0;
+  font-family: "Sarabun", "Noto Sans Thai", system-ui, sans-serif;
+  background-color: #121212; /* Deep charcoal background */
+  color: #f0f0f0; /* Soft white for main text */
+  line-height: 1.6;
+}
+
+/* === Header === */
+header {
+  text-align: center;
+  padding: 48px 24px 32px 24px;
+  border-bottom: 1px solid #333; /* Subtle separator */
+}
+
+header h1 {
+  margin: 0 0 12px 0;
+  font-size: 32px;
+  font-weight: 600;
+  /* Using a subtle gold gradient for a luxury touch */
+  background: linear-gradient(90deg, #E6B800, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+header p {
+  margin: 0;
+  color: #aaaaaa; /* Lighter gray for subtext */
+  font-size: 16px;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+
+/* === Main Content: Card Grid === */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px; /* More breathing room */
+  padding: 32px;
+  max-width: 1400px; /* Set a max width for large screens */
+  margin: 0 auto;
+}
+
+/* === Company Card === */
+article {
+  background-color: #1E1E1E; /* Dark graphite surface for cards */
+  border: 1px solid #333;
+  border-radius: 12px; /* Softer radius */
+  padding: 24px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow for "floating" effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-6px); /* Lift effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
+}
+
+article img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%; /* Circular logo frame */
+  background-color: #2a2a2a; /* Dark background for the logo */
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in the size */
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset; /* Inner shadow for depth */
+}
+
+article h2 {
+  margin: 16px 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+article p {
+  margin: 0 0 20px;
+  color: #bbbbbb;
+  font-size: 15px;
+  font-family: "Noto Sans Thai", sans-serif;
+  min-height: 4.5em; /* Helps align card buttons */
+}
+
+/* === Card Button (Primary Accent) === */
+article button.open-btn {
+  border: none;
+  background-color: #D4AF37; /* Gold accent */
+  color: #111; /* Dark text for contrast */
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+article button.open-btn:hover {
+  background-color: #E6B800; /* Brighter gold on hover */
+  transform: scale(1.05);
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  color: #666; /* Muted color */
+  font-size: 14px;
+  padding: 32px 0;
+  border-top: 1px solid #333;
+  margin-top: 32px;
+}
+
+/* === Overlay / Modal === */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Frosted glass effect */
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-box {
+  background-color: #2A2A2A; /* Premium dark surface for modal */
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  /* Add a subtle animation */
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.overlay-box img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: #333;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.overlay-box h2 {
+  font-size: 28px;
+  color: #ffffff;
+  margin: 16px 0 10px;
+  font-weight: 600;
+}
+
+.overlay-box p {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 24px;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+
+/* === Modal Buttons (Primary & Secondary) === */
+.overlay-box a,
+.overlay-box button {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 8px;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* "View Chart" - Primary Gold Button */
+#overlayLink {
+  background-color: #D4AF37;
+  color: #111;
+  border-color: #D4AF37;
+}
+
+#overlayLink:hover {
+  background-color: #E6B800;
+  border-color: #E6B800;
+  transform: scale(1.05);
+}
+
+/* "Close" - Secondary Ghost Button */
+#closeBtn {
+  background-color: transparent;
+  color: #bbbbbb;
+  border-color: #555;
+}
+
+#closeBtn:hover {
+  background-color: #333;
+  color: #ffffff;
+  border-color: #777;
+}
+
+/* === Utility Class === */
+/* Prevents scrolling of the body when the modal is open */
+body.modal-open {
+  overflow: hidden;
+}
